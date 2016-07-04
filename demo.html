@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        .container {
+            height:100%;
+            width: 700px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="workflow">
+    </div>
+</div>
+<script src="libs/jquery-3.0.0.min.js"></script>
+<script src="libs/svg.min.js"></script>
+<script src="workflowChart.js"></script>
+<script>
+    $(function () {
+        $('.workflow').workflowChart({
+            data: [
+                {id: 1, title: 'Node 1', parent: null, optional: false},
+                {id: 2, title: 'Node 2', parent: 1, optional: false},
+                {id: 3, title: 'Node 3', parent: 2, optional: true, link: 'http://www.google.com'},
+                {id: 4, title: 'Node 4', parent: 2, optional: false, link: 'http://www.google.com'},
+                {id: 5, title: 'Node 5', parent: 4, optional: false, link: 'http://www.google.com'},
+                {id: 6, title: 'Node 6', parent: 5, optional: false, link: 'http://www.google.com'}
+            ]
+        })
+    });
+</script>
+</body>
+</html>
